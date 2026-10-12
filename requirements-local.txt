@@ -1,7 +1,1 @@
-asgiref==3.2.10
-Django==3.1.1
-dj-database-url==0.5.0
-gunicorn==20.0.4
-whitenoise==5.2.0
-Pillow
-requests
+-r requirements.txt
