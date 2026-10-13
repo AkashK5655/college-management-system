@@ -7,5 +7,4 @@ media/
 !.env.example
 __pycache__/
 *.py[cod]
-static/
 staticfiles/

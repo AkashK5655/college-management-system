@@ -1,100 +1,174 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>C.M.S | Log In</title>
-    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Font Awesome -->
+
+    <title>C.M.S | Login</title>
+
     <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 
-<body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href=""><b>College</b> Management System</a>
+<body class="cms-login-page">
 
-        </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
-                <!-- <p class="login-box-msg">Sign in to start your session</p> -->
+    <main class="cms-login-layout">
+
+        <!-- Left welcome section -->
+        <section class="cms-welcome-panel">
+
+            <a href="/" class="cms-brand">
+                <span class="cms-brand-icon">
+                    <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                </span>
+
+                <span>
+                    <strong>COLLEGE</strong>
+                    <small>MANAGEMENT SYSTEM</small>
+                </span>
+            </a>
+
+            <div class="cms-welcome-content">
+
+                <span class="cms-eyebrow">
+                    ONE PORTAL FOR EVERYONE
+                </span>
+
+                <h1>
+                    Learn.<br>
+                    Grow.<br>
+                    Achieve More.
+                </h1>
+
+                <p>
+                    Admins, staff and students sign in here to manage
+                    attendance, results, leave and notices.
+                </p>
+
+                <div class="cms-feature">
+                    <span class="cms-feature-icon">
+                        <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+                    </span>
+
+                    <div>
+                        <strong>Attendance and results</strong>
+                        <p>Track attendance and view results in one place.</p>
+                    </div>
+                </div>
+
+                <div class="cms-feature">
+                    <span class="cms-feature-icon">
+                        <i class="fas fa-bell" aria-hidden="true"></i>
+                    </span>
+
+                    <div>
+                        <strong>Leave and notices</strong>
+                        <p>Apply for leave and stay updated with college notices.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="cms-welcome-footer">
+                LEARN TODAY. LEAD TOMORROW.
+            </div>
+
+        </section>
+
+        <!-- Right login section -->
+        <section class="cms-form-panel">
+
+            <div class="cms-login-card">
+
+                <div class="cms-mobile-brand">
+                    <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                    <span>COLLEGE PORTAL</span>
+                </div>
+
+                <div class="cms-form-heading">
+                    <span class="cms-form-eyebrow">WELCOME BACK</span>
+
+                    <h2>Sign in to your account</h2>
+
+                    <p>
+                        Sign in with your college-registered email.
+                    </p>
+                </div>
+
+                <!-- Preserve existing Django error messages -->
                 {% if messages %}
-                <div class="col-12">
+                <div class="cms-messages" aria-live="polite">
                     {% for message in messages %}
                     {% if message.tags == 'error' %}
-                    <div class="alert alert-danger text-center ">
-                        {{message }}
+                    <div class="cms-error-message" role="alert">
+                        <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+                        <span>{{ message }}</span>
                     </div>
                     {% endif %}
                     {% endfor %}
                 </div>
                 {% endif %}
+
+                <!-- Existing login endpoint and field names preserved -->
                 <form action="doLogin/" method="post">
                     {% csrf_token %}
-                    <div class="input-group mb-3">
-                        <input required type="email" name='email' class="form-control" placeholder="Email">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input required type="password" name='password' class="form-control" placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-success btn-block">Log In</button>
-                        </div>
 
+                    <div class="cms-form-group">
+                        <label for="cms-email">Email address</label>
 
-                        <!-- /.col -->
+                        <div class="cms-input-wrapper">
+                            <i class="far fa-envelope" aria-hidden="true"></i>
+
+                            <input id="cms-email" type="email" name="email" class="cms-input"
+                                placeholder="Enter your email" autocomplete="username" required>
+                        </div>
                     </div>
+
+                    <div class="cms-form-group">
+                        <label for="cms-password">Password</label>
+
+                        <div class="cms-input-wrapper">
+                            <i class="fas fa-lock" aria-hidden="true"></i>
+
+                            <input id="cms-password" type="password" name="password" class="cms-input"
+                                placeholder="Enter your password" autocomplete="current-password" required>
+                        </div>
+                    </div>
+
+                    <div class="cms-form-options">
+                        <a href="{% url 'password_reset' %}">
+                            Forgot password?
+                        </a>
+                    </div>
+
+                    <button type="submit" class="cms-submit-button">
+                        <span>Sign In</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+
                 </form>
 
+                <div class="cms-divider">
+                    <span>COLLEGE MANAGEMENT SYSTEM</span>
+                </div>
 
-                <p class="mb-1">
-                    <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                <p class="cms-help-text">
+                    Having trouble signing in?<br>
+                    Contact your college administrator.
                 </p>
 
             </div>
-            <!-- /.login-card-body -->
-        </div>
-    </div>
-    <!-- /.login-box -->
 
-    <!-- jQuery -->
-    <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <!-- AdminLTE App -->
-    <script src="{% static 'dist/js/adminlte.min.js' %}"></script>
+            <footer class="cms-page-footer">
+                &copy; {% now "Y" %} College Management System
+            </footer>
+
+        </section>
+
+    </main>
 
 </body>
 
