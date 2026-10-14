@@ -1,0 +1,209 @@
+/* ======================================
+   Admin Dashboard - Scoped Styles
+   ====================================== */
+
+.admin-dashboard {
+    padding: 20px 10px;
+    color: #1e293b;
+    background-color: #f5f7fb;
+    min-height: 100vh;
+}
+
+.admin-dashboard .container-fluid {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Dashboard heading */
+.admin-dashboard-heading {
+    margin-bottom: 26px;
+}
+
+.admin-dashboard-heading h2 {
+    margin: 0 0 8px;
+    color: #172554;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.admin-dashboard-heading p {
+    margin: 0;
+    color: #64748b;
+    font-size: 15px;
+}
+
+/* Summary cards */
+.admin-stat-row {
+    margin-bottom: 12px;
+}
+
+.admin-dashboard .admin-stat-card {
+    min-height: 160px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.07);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-dashboard .admin-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.13);
+}
+
+.admin-dashboard .admin-stat-card .inner {
+    padding: 24px 22px 12px;
+}
+
+.admin-dashboard .admin-stat-card h3 {
+    margin: 0 0 8px;
+    font-size: 32px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.admin-dashboard .admin-stat-card p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.admin-dashboard .admin-stat-card .icon {
+    top: 16px;
+    right: 15px;
+}
+
+.admin-dashboard .admin-stat-card .icon i {
+    font-size: 52px;
+    opacity: 0.22;
+}
+
+.admin-dashboard .admin-stat-card .small-box-footer {
+    padding: 10px 14px;
+    font-size: 13px;
+    background: rgba(0, 0, 0, 0.10);
+}
+
+/* Consistent card colors */
+.admin-dashboard .admin-stat-card.bg-red {
+    background: linear-gradient(135deg, #ef4444, #b91c1c) !important;
+}
+
+.admin-dashboard .admin-stat-card.bg-blue {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+}
+
+.admin-dashboard .admin-stat-card.bg-green {
+    background: linear-gradient(135deg, #22c55e, #15803d) !important;
+}
+
+.admin-dashboard .admin-stat-card.bg-pink {
+    background: linear-gradient(135deg, #ec4899, #be185d) !important;
+}
+
+/* Chart cards */
+.admin-dashboard .admin-chart-card {
+    height: calc(100% - 24px);
+    margin-bottom: 24px;
+    overflow: hidden;
+    border: 1px solid #e8edf5;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.05);
+}
+
+.admin-dashboard .admin-chart-card .card-header {
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+    padding: 18px 22px;
+    border-bottom: 1px solid #edf1f7;
+    background: #ffffff;
+}
+
+.admin-dashboard .admin-chart-card .card-title {
+    margin: 0;
+    color: #1e293b;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.admin-dashboard .admin-chart-card .card-body {
+    padding: 22px;
+}
+
+.admin-dashboard .admin-chart-card .chart {
+    position: relative;
+    width: 100%;
+}
+
+/* Keep charts within their cards */
+.admin-dashboard canvas {
+    max-width: 100%;
+}
+
+/* Tablet and mobile */
+@media (max-width: 767.98px) {
+    .admin-dashboard {
+        padding: 14px 4px;
+    }
+
+    .admin-dashboard-heading {
+        margin-bottom: 20px;
+    }
+
+    .admin-dashboard-heading h2 {
+        font-size: 23px;
+    }
+
+    .admin-dashboard .admin-stat-card {
+        min-height: 140px;
+        border-radius: 12px;
+    }
+
+    .admin-dashboard .admin-stat-card .inner {
+        padding: 18px 14px 10px;
+    }
+
+    .admin-dashboard .admin-stat-card h3 {
+        font-size: 25px;
+    }
+
+    .admin-dashboard .admin-stat-card p {
+        font-size: 13px;
+    }
+
+    .admin-dashboard .admin-stat-card .icon i {
+        font-size: 36px;
+    }
+
+    .admin-dashboard .admin-chart-card {
+        border-radius: 12px;
+    }
+
+    .admin-dashboard .admin-chart-card .card-header {
+        padding: 15px;
+    }
+
+    .admin-dashboard .admin-chart-card .card-body {
+        padding: 14px;
+    }
+
+    .admin-dashboard .admin-chart-card .card-title {
+        font-size: 14px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .admin-dashboard .admin-stat-card {
+        transition: none;
+    }
+
+    .admin-dashboard .admin-stat-card:hover {
+        transform: none;
+    }
+}
